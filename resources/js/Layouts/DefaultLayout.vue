@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="container pt-3 pb-5">
+            <div class="container py-5">
                 <slot></slot>
             </div>
         </div>
