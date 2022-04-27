@@ -95,32 +95,32 @@ export default {
                 {
                     name: 'What is Crypto?',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'what_is_crypto',
                 },
                 {
                     name: 'What is NFT?',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'what_is_nft',
                 },
                 {
                     name: 'NFT Basics',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'nft_basics',
                 },
                 {
                     name: 'How to buy NFT?',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'how_to_buy_nft',
                 },
                 {
                     name: 'Where to buy NFT?',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'where_to_buy_nft',
                 },
                 {
                     name: 'How to make NFT?',
                     icon: 'fa-home',
-                    link: 'homepage',
+                    link: 'how_to_make_nft',
                 },
             ],
         }

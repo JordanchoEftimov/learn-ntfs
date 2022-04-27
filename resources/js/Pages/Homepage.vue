@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col col-12 col-md-6 mb-3">
                 <div class="display-6 fw-bold fst-italic mb-3">
-                    What is NFT?
+                    Everything you need to know about NFTs in one place!
                 </div>
                 <div class="fs-6">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit in justo id porttitor. Nam
