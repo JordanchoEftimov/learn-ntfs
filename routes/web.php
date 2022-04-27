@@ -41,3 +41,11 @@ Route::get('/where-to-buy-nft', function () {
 Route::get('/how-to-make-nft', function () {
     return Inertia::render('HowToMakeNFT');
 })->name('how_to_make_nft');
+
+Route::get('/login', function () {
+    return Inertia::render('Login');
+})->name('login');
+
+Route::get('/register', function () {
+    return Inertia::render('Register');
+})->name('register');

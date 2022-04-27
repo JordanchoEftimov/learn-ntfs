@@ -1,3 +1,11 @@
+// buttons
+$btn-focus-box-shadow: none !important;
+$btn-box-shadow: none !important;
+$btn-active-box-shadow: none !important;
+.btn:focus, button:focus, .btn:active, button:active {
+    box-shadow: none !important;
+}
+
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome";
 

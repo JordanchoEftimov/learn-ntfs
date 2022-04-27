@@ -61,8 +61,8 @@
                             </ul>
                         </div>
                         <div v-else class="d-flex align-items-center">
-                            <Link class="btn btn-outline-light me-2 px-4">Register</Link>
-                            <Link class="btn btn-outline-light px-4">Login</Link>
+                            <Link :href="$route('register')" class="btn btn-outline-light me-2 px-4">Register</Link>
+                            <Link :href="$route('login')" class="btn btn-outline-light px-4">Login</Link>
                         </div>
                     </div>
                 </div>
