@@ -27,6 +27,11 @@
                 </a>
             </div>
         </div>
+        <div class="d-flex justify-content-end">
+            <Link :href="$route('quiz')" class="btn btn-lg btn-primary">
+                Attempt Quiz Now
+            </Link>
+        </div>
     </div>
 </template>
 

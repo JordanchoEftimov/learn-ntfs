@@ -49,3 +49,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return Inertia::render('Register');
 })->name('register');
+
+Route::get('/quiz', function () {
+    return Inertia::render('Quiz');
+})->name('quiz');
