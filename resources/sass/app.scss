@@ -9,6 +9,10 @@ $btn-active-box-shadow: none !important;
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome";
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* admin layout */
 @include media-breakpoint-up(lg) {
     .sidebar {

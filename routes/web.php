@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,6 +15,21 @@ use Inertia\Inertia;
 |
 */
 
+// routes for guests (not authenticated users)
+Route::middleware('guest')->group(function () {
+    Route::get('/sign-up', [AuthController::class, 'show_sign_up'])->name('show_sign_up');
+    Route::post('/sign-up', [AuthController::class, 'sign_up'])->name('sign_up');
+
+    Route::get('/sign-in', [AuthController::class, 'show_sign_in'])->name('show_sign_in');
+    Route::post('/sign-in', [AuthController::class, 'sign_in'])->name('sign_in');
+});
+
+// routes for authenticated users
+Route::middleware('auth')->group(function () {
+    Route::post('/sign-out', [AuthController::class, 'sign_out'])->name('sign_out');
+});
+
+// TODO: Delete this routes
 Route::get('/', function () {
     return Inertia::render('Homepage');
 })->name('homepage');
@@ -41,14 +57,6 @@ Route::get('/where-to-buy-nft', function () {
 Route::get('/how-to-make-nft', function () {
     return Inertia::render('HowToMakeNFT');
 })->name('how_to_make_nft');
-
-Route::get('/login', function () {
-    return Inertia::render('Login');
-})->name('login');
-
-Route::get('/register', function () {
-    return Inertia::render('Register');
-})->name('register');
 
 Route::get('/quiz', function () {
     return Inertia::render('Quiz');

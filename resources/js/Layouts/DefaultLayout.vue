@@ -39,7 +39,7 @@
                     </nav>
 
                     <div class="nav navbar-nav navbar-right">
-                        <div v-if="false" class="dropdown">
+                        <div v-if="user" class="dropdown">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
                                id="dropdownUser2" data-bs-display="static" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -54,15 +54,16 @@
                                 aria-labelledby="dropdownUser2">
                                 <li>
                                     <Link method="post" as="button" type="button"
+                                          :href="$route('sign_out')"
                                           class="dropdown-item"
-                                    ><i class="fa fa-sign-out me-2"></i>Одјави се
+                                    ><i class="fa fa-sign-out me-2"></i>Log Out
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                         <div v-else class="d-flex align-items-center">
-                            <Link :href="$route('register')" class="btn btn-outline-light me-2 px-4">Register</Link>
-                            <Link :href="$route('login')" class="btn btn-outline-light px-4">Login</Link>
+                            <Link :href="$route('show_sign_up')" class="btn btn-outline-light me-2 px-4">Register</Link>
+                            <Link :href="$route('show_sign_in')" class="btn btn-outline-light px-4">Login</Link>
                         </div>
                     </div>
                 </div>
@@ -80,7 +81,8 @@ import {Inertia} from '@inertiajs/inertia'
 export default {
     name: "DefaultLayout",
     props: {
-        menu: Object
+        menu: Object,
+        user: Object
     },
     data() {
         return {
@@ -123,14 +125,6 @@ export default {
                     link: 'how_to_make_nft',
                 },
             ],
-        }
-    },
-    computed: {
-        user() {
-            return this.$page.props.auth.user
-        },
-        can() {
-            return this.$page.props.can
         }
     },
     mounted() {
