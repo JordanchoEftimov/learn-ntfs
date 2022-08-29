@@ -13,9 +13,12 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <Link :href="$route('quizzes.show', lecture.quiz)" class="btn btn-lg btn-primary">
+            <Link v-if="user" :href="$route('quizzes.show', lecture.quiz)" class="btn btn-lg btn-primary">
                 Attempt Quiz Now
             </Link>
+            <button data-bs-toggle="modal" data-bs-target="#youNeedToBeLoggedInModal" class="btn btn-lg btn-primary">
+                Attempt Quiz Now
+            </button>
         </div>
     </div>
 </template>
@@ -27,7 +30,8 @@ export default {
     name: "Show",
     layout: DefaultLayout,
     props: {
-        lecture: Object
+        lecture: Object,
+        user: Object
     }
 }
 </script>

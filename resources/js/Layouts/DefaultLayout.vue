@@ -23,13 +23,19 @@
                                 <i class="fa fa-angle-down"></i>
                             </div>
                             <div v-if="item.showSubMenuItems">
-                                <Link :href="$route(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)"
-                                      v-for="subItem in item.subMenuItems"
-                                      :key="subItem.id"
-                                      :class="{'active': $route().current(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)}"
-                                      class="nav-link text-white cursor-pointer ms-4">
-                                    {{ subItem.title }}
-                                </Link>
+                                <div v-for="subItem in item.subMenuItems"
+                                     :key="subItem.id">
+                                    <Link v-if="item.lectures || user"
+                                          :href="$route(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)"
+                                          :class="{'active': $route().current(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)}"
+                                          class="nav-link text-white cursor-pointer ms-4">
+                                        {{ subItem.title }}
+                                    </Link>
+                                    <div v-else class="nav-link text-white cursor-pointer ms-4"
+                                         data-bs-toggle="modal" data-bs-target="#youNeedToBeLoggedInModal">
+                                        {{ subItem.title }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <Link v-else :href="$route(item.link)"
@@ -89,14 +95,17 @@
                 <slot></slot>
             </div>
         </div>
+        <YouNeedToBeLoggedInModal/>
     </main>
 </template>
 
 <script>
 import {Inertia} from '@inertiajs/inertia'
+import YouNeedToBeLoggedInModal from "../Modals/YouNeedToBeLoggedInModal";
 
 export default {
     name: "DefaultLayout",
+    components: {YouNeedToBeLoggedInModal},
     props: {
         menu: Object,
         user: Object,
