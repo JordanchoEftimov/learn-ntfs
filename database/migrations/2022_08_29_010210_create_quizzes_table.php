@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('min_percent_to_pass');
+            $table->string('name');
             $table->foreignId('lecture_id');
             $table->timestamps();
         });
