@@ -99,7 +99,8 @@ export default {
     props: {
         menu: Object,
         user: Object,
-        lectures: Array
+        lectures: Array,
+        quizzes: Array
     },
     data() {
         return {
@@ -116,12 +117,14 @@ export default {
                     icon: 'fa-book',
                     hasSubmenu: true,
                     subMenuItems: this.lectures,
-                    showSubMenuItems: false
+                    showSubMenuItems: false,
                 },
                 {
                     name: 'Quizzes',
                     icon: 'fa-lightbulb-o',
-                    hasSubmenu: true
+                    hasSubmenu: true,
+                    subMenuItems: this.quizzes,
+                    showSubMenuItems: false
                 }
             ],
         }

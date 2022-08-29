@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Lecture;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -40,9 +41,11 @@ class HandleInertiaRequests extends Middleware
     {
         $user = Auth::user();
         $lectures = Lecture::all();
+        $quizzes = Quiz::all();
         return array_merge(parent::share($request), [
             'user' => $user,
-            'lectures' => $lectures
+            'lectures' => $lectures,
+            'quizzes' => $quizzes
         ]);
     }
 }
