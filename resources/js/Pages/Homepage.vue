@@ -8,19 +8,24 @@
                 <div class="display-6 fw-bold fst-italic mb-3">
                     Everything you need to know about NFTs in one place!
                 </div>
-                <div class="fs-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit in justo id porttitor. Nam
-                    consequat ante quis euismod vestibulum. Nullam quis maximus nulla. Vivamus accumsan porta ipsum,
-                    vehicula cursus urna pellentesque eget. Suspendisse vestibulum libero a faucibus eleifend.
-                    Suspendisse finibus mattis lacinia. Nam mollis ex non pulvinar sollicitudin. Maecenas aliquam sapien
-                    convallis ex porttitor, sed egestas nulla lacinia. Vivamus hendrerit mollis velit at venenatis. Sed
-                    gravida odio sit amet viverra rutrum. Etiam in neque euismod, rhoncus ipsum sed, pellentesque
-                    ligula. Nunc aliquet in orci sit amet condimentum. Donec ultrices ac dolor non efficitur. Sed
-                    pretium, ex eu lobortis molestie, neque arcu fringilla velit, ut efficitur nunc ante ac est. Fusce
-                    tincidunt nisl consectetur felis tincidunt, sit amet cursus purus sagittis.
-                </div>
+                <p class="fs-6">
+                    A non-fungible token (NFT) is a record on a blockchain which is associated with a particular digital
+                    or physical asset. [1] The ownership of an NFT is recorded in the blockchain, and can be transferred
+                    by the owner, allowing NFTs to be sold and traded. NFTs can be created by anybody, and require few
+                    or no coding skills to create.[2] NFTs typically contain references to digital files such as photos,
+                    videos, and audio. Because NFTs are uniquely identifiable assets, they differ from cryptocurrencies,
+                    which are fungible.
+                </p>
+                <p>
+                    Proponents of NFTs claim that NFTs provide a public certificate of authenticity or proof of
+                    ownership, but the legal rights conveyed by an NFT can be uncertain. The ownership of an NFT as
+                    defined by the blockchain has no inherent legal meaning, and does not necessarily grant copyright,
+                    intellectual property rights, or other legal rights over its associated digital file. An NFT does
+                    not restrict the sharing or copying of its associated digital file, and does not prevent the
+                    creation of NFTs that reference identical files.
+                </p>
             </div>
-            <div class="col col-12 col-md-6 mb-3">
+            <div class="col col-12 col-md-6 mb-3 d-flex align-items-center">
                 <a href="https://www.freepik.com/vectors/blockchain-cryptocurrency" target="_blank">
                     <img src="/images/home-image.jpg" alt="Blockchain image" class="img-fluid">
                 </a>

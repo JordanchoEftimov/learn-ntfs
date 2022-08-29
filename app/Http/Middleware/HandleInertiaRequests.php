@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Lecture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -38,8 +39,10 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $user = Auth::user();
+        $lectures = Lecture::all();
         return array_merge(parent::share($request), [
-            'user' => $user
+            'user' => $user,
+            'lectures' => $lectures
         ]);
     }
 }

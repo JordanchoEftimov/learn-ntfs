@@ -11,10 +11,27 @@
                 </Link>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <!-- Link options -->
                     <li v-for="item in menuOptions" :key="item.name" class="nav-item line-height-normal"
                         :class="{'d-none':item.hide}">
-                        <Link :href="$route(item.link)"
+                        <div v-if="item.hasSubmenu">
+                            <div @click="item.showSubMenuItems = !item.showSubMenuItems"
+                                 class="nav-link text-white cursor-pointer d-flex align-items-center justify-content-between">
+                                <div>
+                                    <i class="fa" :class="item.icon"></i>
+                                    {{ item.name }}
+                                </div>
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div v-if="item.showSubMenuItems">
+                                <Link :href="$route('lectures.show', subItem)" v-for="subItem in item.subMenuItems"
+                                      :key="subItem.id"
+                                      :class="{'active': $route().current('lectures.show', subItem)}"
+                                      class="nav-link text-white cursor-pointer ms-4">
+                                    {{ subItem.title }}
+                                </Link>
+                            </div>
+                        </div>
+                        <Link v-else :href="$route(item.link)"
                               class="nav-link text-white"
                               :class="{'active': $route().current(item.link)}"
                               aria-current="page">
@@ -37,7 +54,6 @@
                     <nav class="navbar navbar-dark bg-dark">
                         <span class="navbar-brand mb-0 h1"></span>
                     </nav>
-
                     <div class="nav navbar-nav navbar-right">
                         <div v-if="user" class="dropdown">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
@@ -82,7 +98,8 @@ export default {
     name: "DefaultLayout",
     props: {
         menu: Object,
-        user: Object
+        user: Object,
+        lectures: Array
     },
     data() {
         return {
@@ -95,35 +112,17 @@ export default {
                     link: 'homepage',
                 },
                 {
-                    name: 'What is Crypto?',
-                    icon: 'fa-home',
-                    link: 'what_is_crypto',
+                    name: 'Lectures',
+                    icon: 'fa-book',
+                    hasSubmenu: true,
+                    subMenuItems: this.lectures,
+                    showSubMenuItems: false
                 },
                 {
-                    name: 'What is NFT?',
-                    icon: 'fa-home',
-                    link: 'what_is_nft',
-                },
-                {
-                    name: 'NFT Basics',
-                    icon: 'fa-home',
-                    link: 'nft_basics',
-                },
-                {
-                    name: 'How to buy NFT?',
-                    icon: 'fa-home',
-                    link: 'how_to_buy_nft',
-                },
-                {
-                    name: 'Where to buy NFT?',
-                    icon: 'fa-home',
-                    link: 'where_to_buy_nft',
-                },
-                {
-                    name: 'How to make NFT?',
-                    icon: 'fa-home',
-                    link: 'how_to_make_nft',
-                },
+                    name: 'Quizzes',
+                    icon: 'fa-lightbulb-o',
+                    hasSubmenu: true
+                }
             ],
         }
     },
@@ -134,7 +133,7 @@ export default {
     },
     beforeDestroy() {
         this.removeEvent()
-    }
+    },
 }
 </script>
 

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('lectures', function (Blueprint $table) {
             $table->id();
             $table->text('paragraph');
-            $table->string('image');
+            $table->text('image');
             $table->string('title');
             $table->timestamps();
         });

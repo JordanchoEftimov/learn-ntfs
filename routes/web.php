@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LectureController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -29,34 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/sign-out', [AuthController::class, 'sign_out'])->name('sign_out');
 });
 
-// TODO: Delete this routes
-Route::get('/', function () {
-    return Inertia::render('Homepage');
-})->name('homepage');
-
-Route::get('/what-is-crypto', function () {
-    return Inertia::render('WhatIsCrypto');
-})->name('what_is_crypto');
-
-Route::get('/what-is-nft', function () {
-    return Inertia::render('WhatIsNFT');
-})->name('what_is_nft');
-
-Route::get('/nft-basics', function () {
-    return Inertia::render('NFTBasics');
-})->name('nft_basics');
-
-Route::get('/how-to-buy-nft', function () {
-    return Inertia::render('HowToBuyNFT');
-})->name('how_to_buy_nft');
-
-Route::get('/where-to-buy-nft', function () {
-    return Inertia::render('WhereToBuyNFT');
-})->name('where_to_buy_nft');
-
-Route::get('/how-to-make-nft', function () {
-    return Inertia::render('HowToMakeNFT');
-})->name('how_to_make_nft');
+// public routes
+Route::get('/', [HomeController::class, 'home'])->name('homepage');
+Route::resource('lectures', LectureController::class)->only('show');
 
 Route::get('/quiz', function () {
     return Inertia::render('Quiz');
