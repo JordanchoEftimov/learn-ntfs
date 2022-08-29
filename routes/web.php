@@ -3,8 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LectureController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,4 @@ Route::middleware('auth')->group(function () {
 // public routes
 Route::get('/', [HomeController::class, 'home'])->name('homepage');
 Route::resource('lectures', LectureController::class)->only('show');
-
-Route::get('/quiz', function () {
-    return Inertia::render('Quiz');
-})->name('quiz');
+Route::resource('quizzes', QuizController::class)->only('show');

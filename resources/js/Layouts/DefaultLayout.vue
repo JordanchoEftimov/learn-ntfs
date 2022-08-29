@@ -23,9 +23,10 @@
                                 <i class="fa fa-angle-down"></i>
                             </div>
                             <div v-if="item.showSubMenuItems">
-                                <Link :href="$route('lectures.show', subItem)" v-for="subItem in item.subMenuItems"
+                                <Link :href="$route(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)"
+                                      v-for="subItem in item.subMenuItems"
                                       :key="subItem.id"
-                                      :class="{'active': $route().current('lectures.show', subItem)}"
+                                      :class="{'active': $route().current(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)}"
                                       class="nav-link text-white cursor-pointer ms-4">
                                     {{ subItem.title }}
                                 </Link>
@@ -118,13 +119,15 @@ export default {
                     hasSubmenu: true,
                     subMenuItems: this.lectures,
                     showSubMenuItems: false,
+                    lectures: true,
                 },
                 {
                     name: 'Quizzes',
                     icon: 'fa-lightbulb-o',
                     hasSubmenu: true,
                     subMenuItems: this.quizzes,
-                    showSubMenuItems: false
+                    showSubMenuItems: false,
+                    lectures: false,
                 }
             ],
         }
