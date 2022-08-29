@@ -10,7 +10,7 @@ class Lecture extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['paragraph', 'image'];
+    protected $fillable = ['paragraph', 'image', 'title'];
 
     public function quiz(): HasOne
     {
