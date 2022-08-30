@@ -29,6 +29,7 @@ Route::middleware('guest')->group(function () {
 // routes for authenticated users
 Route::middleware('auth')->group(function () {
     Route::post('/sign-out', [AuthController::class, 'sign_out'])->name('sign_out');
+    Route::post('/pass_quiz/{quiz}', [QuizController::class, 'store_passed_quiz'])->name('pass_quiz');
 });
 
 // public routes

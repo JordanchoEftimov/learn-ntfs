@@ -91,7 +91,7 @@ export default {
             return this.questions[this.currentQuestionIndex];
         },
         successfullyPassed() {
-            return this.correctAnswers / this.questions.length > 0.70
+            return this.correctAnswers / this.questions.length > 0.7
         }
     },
     methods: {
@@ -107,6 +107,8 @@ export default {
         },
         finish() {
             this.showResult = true
+            if (this.successfullyPassed)
+                this.$inertia.post(this.$route('pass_quiz', this.quiz.id))
         }
     }
 }
