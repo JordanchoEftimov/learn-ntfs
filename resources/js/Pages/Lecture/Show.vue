@@ -16,7 +16,7 @@
             <Link v-if="user" :href="$route('quizzes.show', lecture.quiz)" class="btn btn-lg btn-primary">
                 Attempt Quiz Now
             </Link>
-            <button data-bs-toggle="modal" data-bs-target="#youNeedToBeLoggedInModal" class="btn btn-lg btn-primary">
+            <button v-else data-bs-toggle="modal" data-bs-target="#youNeedToBeLoggedInModal" class="btn btn-lg btn-primary">
                 Attempt Quiz Now
             </button>
         </div>
