@@ -11,6 +11,7 @@ class QuizController extends Controller
     public function show(Quiz $quiz): Response
     {
         abort_if(!auth()->user(), 403);
+        $quiz->loadMissing('questions', 'questions.answers');
         return Inertia::render('Quiz/Show', compact('quiz'));
     }
 }

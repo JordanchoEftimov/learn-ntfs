@@ -77,10 +77,10 @@ class QuestionSeeder extends Seeder
                     'question' => 'What is Step 1 of making NFT?'
                 ],
                 [
-                    'question' => 'What is Step 2 of making NFT?'
+                    'question' => 'What is Step 3 of making NFT?'
                 ],
                 [
-                    'question' => 'What is Step 3 of making NFT?'
+                    'question' => 'What is Step 2 of making NFT?'
                 ],
                 [
                     'question' => 'What is the most common blockchain platform for NFTs?'
