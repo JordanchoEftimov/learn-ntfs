@@ -24,6 +24,17 @@
                     not restrict the sharing or copying of its associated digital file, and does not prevent the
                     creation of NFTs that reference identical files.
                 </p>
+                <p v-if="!user" class="fw-bold">
+                    Note: In order to test your knowledge with the quiz, you need to have an account. You can create
+                    an account
+                    <Link :href="$route('show_sign_up')">here</link>
+                    .
+                </p>
+                <p v-if="!user" class="fw-bold">
+                    Have an account? Login
+                    <Link :href="$route('show_sign_in')">here</Link>
+                    .
+                </p>
             </div>
             <div class="col col-12 col-md-6 mb-3 d-flex align-items-center">
                 <a href="https://www.freepik.com/vectors/blockchain-cryptocurrency" target="_blank">
@@ -39,7 +50,10 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 
 export default {
     name: "Homepage",
-    layout: DefaultLayout
+    layout: DefaultLayout,
+    props: {
+        user: Object
+    }
 }
 </script>
 
