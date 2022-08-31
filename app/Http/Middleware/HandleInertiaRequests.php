@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $user = Auth::user();
+        $user?->loadMissing('quizzes');
         $lectures = Lecture::all();
         $quizzes = Quiz::all();
         return array_merge(parent::share($request), [

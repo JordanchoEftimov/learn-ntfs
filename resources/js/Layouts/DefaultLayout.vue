@@ -28,8 +28,12 @@
                                     <Link v-if="item.lectures || user"
                                           :href="$route(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)"
                                           :class="{'active': $route().current(item.lectures ? 'lectures.show' : 'quizzes.show', subItem)}"
-                                          class="nav-link text-white cursor-pointer ms-4">
-                                        {{ subItem.title }}
+                                          class="nav-link text-white cursor-pointer ms-4 d-flex align-items-center flex-nowrap justify-content-between">
+                                        <span>{{ subItem.title }}</span>
+                                        <span
+                                            v-if="!item.lectures && user.quizzes.map(a => a.id).indexOf(subItem.id) !== -1">
+                                            <i class="fa fa-check text-success"></i>
+                                        </span>
                                     </Link>
                                     <div v-else class="nav-link text-white cursor-pointer ms-4"
                                          data-bs-toggle="modal" data-bs-target="#youNeedToBeLoggedInModal">

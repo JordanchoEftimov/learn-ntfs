@@ -50,7 +50,6 @@ class User extends Authenticatable
 
     public function quizzes(): BelongsToMany
     {
-        return $this->belongsToMany(Quiz::class, 'user_passed_quiz')
-            ->withPivot('percent_passed');
+        return $this->belongsToMany(Quiz::class, 'user_passed_quiz');
     }
 }
